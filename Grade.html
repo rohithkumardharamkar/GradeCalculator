@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        input {
+
+            width: 300px;
+            height: 7vh;
+            border-radius: 10px;
+            padding-left: 10px;
+        }
+
+        div {
+            position: absolute;
+            left: 20%;
+            top: 5%;
+            width: 60%;
+            height: 90vh;
+            background-color: aquamarine;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        button {
+            width: 200px;
+            height: 5vh;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <input type="number" name="" id="" placeholder="Enter Marks Obtained in Telugu" required>
+        <input type="number" name="" id="" placeholder="Enter Marks Obtained in Hindi" required>
+        <input type="number" name="" id="" placeholder="Enter Marks Obtained in English" required>
+        <input type="number" name="" id="" placeholder="Enter Marks Obtained in Mathematics" required>
+        <input type="number" name="" id="" placeholder="Enter Marks Obtained in Physics" required>
+        <input type="number" name="" id="" placeholder="Enter Marks Obtained in Biology" required>
+        <input type="number" name="" id="" placeholder="Enter Marks Obtained in Social Studies" required>
+        <input type="submit" value="Calculate Grade" onclick=fun()>
+        <h6>Note : If the Student is Absent leave the field empty</h6>
+        <h4></h4>
+        <h4></h4>
+        <h4></h4>
+        <h4></h4>
+
+    </div>
+    <script>
+        function fun() {
+            let h4 = document.getElementsByTagName("h4")[0];
+            let h1 = document.getElementsByTagName("h4")[1];
+            let h2 = document.getElementsByTagName("h4")[2];
+            let h6 = document.getElementsByTagName("h4")[3];
+            let telugu = (document.getElementsByTagName("input")[0].value);
+            let hindi = (document.getElementsByTagName("input")[1].value);
+            let English = (document.getElementsByTagName("input")[2].value);
+            let maths = (document.getElementsByTagName("input")[3].value);
+            let phy = (document.getElementsByTagName("input")[4].value);
+            let bio =(document.getElementsByTagName("input")[5].value);
+            let social = (document.getElementsByTagName("input")[6].value);
+            if(telugu==""|| hindi=="" || English==""|| maths==""|| phy=='' || bio=="" || social=="")
+                {
+                    h4.innerHTML=""
+                    h1.innerHTML=""
+                    h2.innerHTML=""
+                    h6.innerHTML=""
+                    return;
+                }
+            telugu = parseInt(telugu);
+            hindi = parseInt(hindi);
+            English = parseInt(English);
+            maths = parseInt(maths);
+            phy = parseInt(phy);
+            bio = parseInt(bio);
+            social = parseInt(social)
+           
+
+            let sum = telugu + hindi + English + maths + phy + bio + social
+            let b=typeof telugu
+            console.log(sum);
+            
+
+
+            if (sum > 600) {
+                h6.innerHTML = "GRADE : A+ "
+            }
+            else if (sum > 500) {
+                h6.innerHTML = "GRADE : A";
+            }
+            else if (sum > 400) {
+                h6.innerHTML = "GRADE : B"
+            }
+            else if (sum > 238) {
+                h6.innerHTML = "GRADE : C"
+            }
+            if (telugu > 100 || hindi > 100 || English > 100 || maths > 100 || phy > 100 || bio > 100 || social > 100) {
+                h4.innerHTML = "Invalid Marks it should be out of 100 only it should not exceed 100"
+                h1.innerHTML = ""
+            }
+
+            if (telugu < 34 || hindi < 34 || English < 34 || maths < 34 || phy < 34 || bio < 34 || social < 34) {
+                h4.innerHTML = ""
+                h1.innerHTML = "FINAL RESULT : FAIL"
+                h6.innerHTML = ""
+            }
+            else if (telugu >= 34 || hindi >= 34 || English >= 34 || maths >= 34 || phy >= 34 || bio >= 34 || social >= 34) {
+                h4.innerHTML = ""
+                h1.innerHTML = "FINAL RESULT : PASS"
+            }
+            else {
+                h1.innerHTML = ""
+            }
+        }
+
+    </script>
+</body>
+
+</html>
